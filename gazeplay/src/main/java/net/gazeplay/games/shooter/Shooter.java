@@ -521,7 +521,6 @@ public class Shooter extends Parent implements GameLifeCycle {
     }
 
     private void newCircle() {
-
         Target sp = buildCircle();
         sp.toBack();
         this.getChildren().add(sp);
@@ -536,7 +535,7 @@ public class Shooter extends Parent implements GameLifeCycle {
         sp.setLayoutY(y);
         sp.centerX = x;
         sp.centerY = y;
-
+        stats.incNbShots();
         moveCircle(sp);
     }
 
