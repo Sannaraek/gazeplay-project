@@ -79,9 +79,6 @@ public class Target extends Portrait {
     private void playHitSound() {
         try
         {
-            // get the sound file as a resource out of my jar file;
-            // the sound file must be in the same directory as this class file.
-            // the input stream portion of this recipe comes from a javaworld.com article.
             try {
                 Clip clip = AudioSystem.getClip();
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(Main.class.getResourceAsStream("/data/ninja/sounds/2009.wav"));
@@ -94,7 +91,6 @@ public class Target extends Portrait {
         catch (Exception e)
         {
             e.printStackTrace();
-            // a special way i'm handling logging in this application
         }    }
 
 
