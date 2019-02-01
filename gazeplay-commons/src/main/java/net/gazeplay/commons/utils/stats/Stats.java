@@ -37,7 +37,7 @@ public class Stats implements GazeMotionListener {
     @Setter
     private int nbShots = 0;
     @Getter
-    protected int nbGoals;
+    protected int nbGoals = 0;
     @Getter
     protected int nbUnCountedShots;
     @Setter
@@ -165,24 +165,21 @@ public class Stats implements GazeMotionListener {
         return this.roundsDurationReport.getSortedDurationsBetweenGoals();
     }
 
-    public float getShotRatio()
+    public int getShotRatio()
     {
-        if(this.nbGoals == this.nbShots)
+        if(this.nbGoals == this.nbShots ||  this.nbShots == 0)
         {
-            return 1;
+            return 100;
         }
         else{
-            return (float) this.nbGoals / (float) this.nbShots;
-
+            int ratioRate = (int)( (float) this.nbGoals / (float) this.nbShots *100.0) ;
+            return ratioRate;
         }
     }
 
     public void incNbShots()
     {
         this.nbShots++;
-//        System.out.println("The number of shots is "+this.nbShots );
-//        System.out.println("The number of goals is "+this.nbGoals );
-//        System.out.println("The ratio is "+ this.getShotRatio());
     }
 
 
